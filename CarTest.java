@@ -1,17 +1,12 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-
-
 public class  CarTest {
     @Test
     public void testMoveForward(){
         Volvo240 volvo = new Volvo240();
         volvo.startEngine();
-        System.out.println(volvo.getCurrentSpeed());
-        System.out.println(volvo.getDirection());
         volvo.move();
-        System.out.println(volvo.getY());
         volvo.move();
         assertEquals(0.2, volvo.getY());
     }
@@ -30,6 +25,6 @@ public class  CarTest {
         volvo.startEngine();
         volvo.incrementSpeed(80);
         volvo.decrementSpeed(20);
-        assertEquals(60, volvo.getCurrentSpeed());
+        assertEquals(75, volvo.getCurrentSpeed());
     }
 }

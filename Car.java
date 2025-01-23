@@ -7,17 +7,17 @@ public class Car implements Movable {
     public Color color; // Color of the car
     public String modelName; // The car model name
 
-    private double x = 0;
-    private double y = 0;
+    public double x = 0;
+    public double y = 0;
     private String direction = "NORTH";
 
     @Override
     public void move(){
         switch(direction){
-            case "NORTH": y += currentSpeed;
-            case "SOUTH": y -= currentSpeed;
-            case "EAST" : x += currentSpeed;
-            case "WEST" : x -= currentSpeed;
+            case "NORTH": y += currentSpeed; break;
+            case "SOUTH": y -= currentSpeed; break;
+            case "EAST" : x += currentSpeed; break;
+            case "WEST" : x -= currentSpeed; break;
         }
     }
 
