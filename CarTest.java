@@ -16,7 +16,7 @@ public class  CarTest {
         Saab95 saab = new Saab95();
         saab.turnLeft();
         saab.turnLeft();
-        assertEquals("SOUTH",saab.getDirection());
+        assertEquals(Car.Direction.SOUTH,saab.getDirection());
     }
 
     @Test

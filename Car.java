@@ -9,35 +9,41 @@ public class Car implements Movable {
 
     public double x = 0;
     public double y = 0;
-    private String direction = "NORTH";
+    enum Direction {
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
+    }
+    private Direction direction = Direction.NORTH;
 
     @Override
     public void move(){
         switch(direction){
-            case "NORTH": y += currentSpeed; break;
-            case "SOUTH": y -= currentSpeed; break;
-            case "EAST" : x += currentSpeed; break;
-            case "WEST" : x -= currentSpeed; break;
+            case NORTH: y += currentSpeed; break;
+            case SOUTH: y -= currentSpeed; break;
+            case EAST : x += currentSpeed; break;
+            case WEST : x -= currentSpeed; break;
         }
     }
 
     @Override
     public void turnLeft(){
         switch(direction){
-            case "NORTH": direction = "WEST";
-            case "SOUTH": direction = "EAST";
-            case "EAST" : direction = "NORTH";
-            case "WEST" : direction = "SOUTH";
+            case NORTH: direction = Direction.WEST;
+            case SOUTH: direction = Direction.EAST;
+            case EAST : direction = Direction.NORTH;
+            case WEST : direction = Direction.SOUTH;
         }
     }
 
     @Override
     public void turnRight(){
         switch(direction){
-            case "NORTH": direction = "EAST";
-            case "SOUTH": direction = "WEST";
-            case "EAST" : direction = "SOUTH";
-            case "WEST" : direction = "NORTH";
+            case NORTH: direction = Direction.EAST;
+            case SOUTH: direction = Direction.WEST;
+            case EAST : direction = Direction.SOUTH;
+            case WEST : direction = Direction.NORTH;
         }
     }
 
@@ -49,7 +55,7 @@ public class Car implements Movable {
         return y;
     }
 
-    public String getDirection(){
+    public Direction getDirection(){
         return direction;
     }
 
