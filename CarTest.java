@@ -27,4 +27,22 @@ public class  CarTest {
         volvo.decrementSpeed(20);
         assertEquals(75, volvo.getCurrentSpeed());
     }
+
+    @Test
+    public void testGas(){
+        Saab95 saab = new Saab95();
+        saab.setTurboOn();
+        saab.gas(1);
+        saab.gas(0.5);
+        assertEquals(2.4375, saab.getCurrentSpeed());
+    }
+
+    @Test
+    public void testBrake(){
+        Volvo240 volvo = new Volvo240();
+        volvo.startEngine();
+        volvo.brake(-20); // Kommer ignoreras
+        volvo.brake(1);
+        assertEquals(0, volvo.getCurrentSpeed());
+    }
 }
