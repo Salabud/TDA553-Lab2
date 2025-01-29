@@ -1,21 +1,29 @@
 import java.awt.*;
 
 public class Car implements Movable {
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
-    public String modelName; // The car model name
+    private String modelName; // The car model name
 
     public double x = 0;
     public double y = 0;
-    enum Direction {
+    public enum Direction {
         NORTH,
         EAST,
         SOUTH,
         WEST
     }
-    private Direction direction = Direction.NORTH;
+    public Direction direction = Direction.NORTH;
+
+    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+        this.nrDoors = nrDoors;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.modelName = modelName;
+        stopEngine();
+    }
 
     @Override
     public void move(){
@@ -57,6 +65,10 @@ public class Car implements Movable {
 
     public Direction getDirection(){
         return direction;
+    }
+
+    public String getModelName(){
+        return modelName;
     }
 
     public int getNrDoors(){
