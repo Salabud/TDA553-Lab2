@@ -79,4 +79,12 @@ public class  CarTest {
         volvo.brake(1);
         assertEquals(0, volvo.getCurrentSpeed());
     }
+
+    @Test
+    public void testRaisePlatform_IgnoreRaiseWhenDriving(){
+        Scania scania = new Scania();
+        scania.gas(10);
+        scania.raisePlatform(10);
+        assertEquals(0,scania.getCurrentAngle());
+    }
 }
