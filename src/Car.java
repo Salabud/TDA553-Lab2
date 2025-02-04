@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Car implements Movable {
+abstract class Car implements Movable {
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     public double currentSpeed; // The current speed of the car
@@ -54,7 +54,7 @@ public class Car implements Movable {
             case WEST : direction = Direction.NORTH;
         }
     }
-
+    
     public double getX(){
         return x;
     }
@@ -62,6 +62,14 @@ public class Car implements Movable {
     public double getY(){
         return y;
     }
+    
+    public void changeX(double amount){x = getX()+amount;}
+
+    public void changeY(double amount){y = getX()+amount;}
+
+    public void setX(double amount){x = amount;}
+
+    public void setY(double amount){y = amount;}
 
     public Direction getDirection(){
         return direction;

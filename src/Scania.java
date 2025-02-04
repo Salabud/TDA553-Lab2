@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Scania extends Car implements Dumpy{
+public class Scania extends Truck implements Dumpy{
     private float minDumpyAngle;
     private float maxDumpyAngle;
     private float currentAngle;
