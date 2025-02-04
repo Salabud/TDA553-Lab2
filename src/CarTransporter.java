@@ -12,6 +12,7 @@ public class CarTransporter extends Truck implements Dumpy{
     public CarTransporter(){
         super(2,300, Color.PINK,"CarTransporter");
         cars = new ArrayList<>();
+        maxCars = 5;
         platformIsLowered = false;
         proximityRange = 3;
     }
@@ -45,9 +46,8 @@ public class CarTransporter extends Truck implements Dumpy{
         }
     }
 
-
     public void loadCar(Car car){
-        if(cars.size() < maxCars && platformIsLowered && isInProximity(car)){
+        if((cars.size() < maxCars) && platformIsLowered && isInProximity(car)){
             cars.add(car);
             car.setX(getX());
             car.setY(getY());
@@ -63,7 +63,7 @@ public class CarTransporter extends Truck implements Dumpy{
             cars.remove(cars.size() - 1);
         }
     }
-
+    public ArrayList<Car> getLoadedCars(){return cars;}
     public Boolean isInProximity(Car car){
         double carX = car.getX();
         double carY = car.getY();

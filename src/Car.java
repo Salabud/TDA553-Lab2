@@ -65,7 +65,7 @@ abstract class Car implements Movable {
     
     public void changeX(double amount){x = getX()+amount;}
 
-    public void changeY(double amount){y = getX()+amount;}
+    public void changeY(double amount){y = getY()+amount;}
 
     public void setX(double amount){x = amount;}
 

@@ -87,4 +87,39 @@ public class  CarTest {
         scania.raisePlatform(10);
         assertEquals(0,scania.getCurrentAngle());
     }
+
+    @Test
+    public void testLoadCar_DumpyUp(){
+        CarTransporter carTransporter = new CarTransporter();
+        Volvo240 volvo = new Volvo240();
+        carTransporter.loadCar(volvo);
+        assertEquals(0, carTransporter.getLoadedCars().size());
+    }
+
+    @Test
+    public void testLoadCar_BigVehicle(){
+        Scania scania = new Scania();
+        CarTransporter carTransporter = new CarTransporter();
+
+        carTransporter.loadCar(scania);
+        assertEquals(0,carTransporter.getLoadedCars().size());
+    }
+    
+    @Test
+    public void testUnloadCar(){
+        Volvo240 volvo = new Volvo240();
+        CarTransporter ct = new CarTransporter();
+
+        ct.lowerPlatform();
+        ct.loadCar(volvo);
+        ct.raisePlatform();
+        ct.gas(1);
+        ct.move();
+        ct.brake(1);
+        ct.stopEngine();
+        ct.lowerPlatform();
+        ct.unloadCar();
+        assertEquals(ct.getY()+1,volvo.getY());
+
+    }
 }
