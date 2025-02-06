@@ -64,6 +64,7 @@ public class CarTransporter extends Truck implements Dumpy{
         }
     }
     public ArrayList<Car> getLoadedCars(){return cars;}
+
     public Boolean isInProximity(Car car){
         double carX = car.getX();
         double carY = car.getY();
